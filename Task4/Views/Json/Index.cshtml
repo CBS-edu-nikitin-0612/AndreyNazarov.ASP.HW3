@@ -1,0 +1,60 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ClientInfo</title>
+</head>
+<body>
+    <table border="1">
+        <tr>
+            <th>Id</th>
+            <th>Login</th>
+            <th>Email</th>
+        </tr>
+        <tr>
+            <td><span id="id1"></span></td>
+            <td><span id="login1"></span></td>
+            <td><span id="email1"></span></td>
+        </tr>
+        <tr>
+            <td><span id="id2"></span></td>
+            <td><span id="login2"></span></td>
+            <td><span id="email2"></span></td>
+        </tr>
+        <tr>
+            <td><span id="id3"></span></td>
+            <td><span id="login3"></span></td>
+            <td><span id="email3"></span></td>
+        </tr>       
+    </table>
+    <button   id="button">JS Script</button>
+    <script>
+        let btn = document.querySelector("#button");
+        let xhr = new XMLHttpRequest();
+
+        btn.addEventListener("click", () => {
+            xhr.open("GET", "/json/clientinfo");
+            xhr.onload = () => {
+                let response = JSON.parse(xhr.response);
+                let result = "";
+               
+                document.querySelector("#id1").innerHTML = response[0].id;
+                document.querySelector("#id2").innerHTML = response[1].id;
+                document.querySelector("#id3").innerHTML = response[2].id;
+                document.querySelector("#login1").innerHTML = response[0].login;
+                document.querySelector("#login2").innerHTML = response[1].login;
+                document.querySelector("#login3").innerHTML = response[2].login;
+                document.querySelector("#email1").innerHTML = response[0].email;
+                document.querySelector("#email2").innerHTML = response[1].email;
+                document.querySelector("#email3").innerHTML = response[2].email;
+            }
+            xhr.send();
+        })
+    </script>
+</body>
+</html>

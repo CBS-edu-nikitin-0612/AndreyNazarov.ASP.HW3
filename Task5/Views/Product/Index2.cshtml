@@ -1,0 +1,30 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index2</title>
+</head>
+<body>
+    <table border="1">
+        <tr>
+            <th>Id</th>
+            <th>Price</th>
+            <th>Name</th>
+        </tr>
+        
+        @foreach (var product in ViewBag.Model)
+        {
+            <tr>
+                <td> @product.Id</td>
+                <td> @product.Price</td>
+                <td> @product.Name</td>
+            </tr>
+        }
+    </table>
+</body>
+</html>

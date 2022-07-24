@@ -1,0 +1,26 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@model int;
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Калькулятор</title>
+    </head>
+    <body>
+       <form asp-controller="Calc" method="post" >
+           <p><input type="number" name="left" style="padding = 10"/></p>
+           <p><input type="number" name="right" /></p>           
+           <p>
+                <input asp-action="Add" type="submit" name="add" value="+" />
+                <input asp-action="Sub" type="submit" name="sub" value="-" />
+                <input asp-action="Div" type="submit" name="div" value="/" />
+                <input asp-action="Mul" type="submit" name="mul" value="*" />
+           </p>
+        </form>
+        <p>Результат: @Model</p>
+    </body>
+
+</html>
+
+
+
+
